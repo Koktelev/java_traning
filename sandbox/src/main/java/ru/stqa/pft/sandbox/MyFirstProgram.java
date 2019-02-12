@@ -8,18 +8,16 @@ public class MyFirstProgram {
     hello ("  world");
     hello ("  you");
 
-    double len = 5;
-    System.out.println("Площадь квадрата со стороной  " + len + " = " + area(len));
+    Square s = new Square(5);
+    s.l = 5;
+    System.out.println("Площадь квадрата со стороной  " + s.l + " = " + s.area());
   }
 
 public static void  hello(String somebody) {
   System.out.println("Hello" + somebody + "!"  );
 }
 
-public static double area (double l ){
-    return l*l;
-}
-public static double area ( double a , double b) {
-  return  a*b ;}
+
+
 
 }
