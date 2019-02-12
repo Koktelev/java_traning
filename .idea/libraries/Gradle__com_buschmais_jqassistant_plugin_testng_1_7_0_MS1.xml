@@ -1,7 +1,6 @@
 <component name="libraryTable">
   <library name="Gradle: com.buschmais.jqassistant.plugin:testng:1.7.0-MS1">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/sandbox/Cannot resolve external dependency com.buschmais.jqassistant.plugin:testng:1.7.0-MS1 because no repositories are defined." />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.buschmais.jqassistant.plugin/testng/1.7.0-MS1/e48b25223bdb0ae61363801addbf22d3c18185bc/testng-1.7.0-MS1.jar!/" />
     </CLASSES>
     <JAVADOC />
