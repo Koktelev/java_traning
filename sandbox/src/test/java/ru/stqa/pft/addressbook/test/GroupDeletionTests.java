@@ -1,7 +1,5 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.test;
 
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
@@ -16,10 +14,10 @@ public class UntitledTestCase  extends TestBase {
   @Test
   public void testGroupDeletion() throws Exception {
 
-    gotoGroupPage();
-    selectGroup();
-    deleteSelectedGroups();
-    returnToGroupPage();
+    app.gotoGroupPage();
+    app.selectGroup();
+    app.deleteSelectedGroups();
+    app.returnToGroupPage();
   }
 
 
