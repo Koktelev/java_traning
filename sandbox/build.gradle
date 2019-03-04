@@ -12,5 +12,7 @@ repositories {
 
 dependencies {
     implementation 'com.buschmais.jqassistant.plugin:testng:1.7.0-MS1'
+    implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    
 }
 
