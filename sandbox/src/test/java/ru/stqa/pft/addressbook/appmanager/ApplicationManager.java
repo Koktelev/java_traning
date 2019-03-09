@@ -1,39 +1,34 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-
-
     protected WebDriver wd;
 
-    private final GroupHelper groupHelper = new GroupHelper();
+    private SessionHelper sessionHelper;
+    private  NavigationHelper navigationHelper ;
+    private  GroupHelper groupHelper ;
 
     protected void init() {
-        groupHelper.wd = new FirefoxDriver();
-        groupHelper.wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        groupHelper.wd.get("http://localhost/addressbook/");
-        GroupHelper groupHelper = new GroupHelper(wd);
-        login("admin", "secret");
+       wd = new FirefoxDriver();
+        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/");
+        groupHelper = new GroupHelper(navigationHelper.wd);
+        navigationHelper = new NavigationHelper(wd);
+        sessionHelper = new SessionHelper(wd);
+
+        sessionHelper.login("admin", "secret");
 
     }
 
-    private void login(String username, String password  String) {
-      groupHelper.wd.findElement(By.name("user")).click();
-      groupHelper.wd.findElement(By.name("user")).clear();
-      groupHelper.wd.findElement(By.name("user")).sendKeys(username);
-      groupHelper.wd.findElement(By.name("pass")).click();
-      groupHelper.wd.findElement(By.name("pass")).clear();
-      groupHelper.wd.findElement(By.name("pass")).sendKeys(password);
-      groupHelper.wd.findElement(By.xpath("//input[@value='Login']")).click();
-    }
 
-    public void gotoGroupPage() {
-      groupHelper.wd.findElement(By.linkText("groups")).click();
-    }
 
     public void stop() {
-        groupHelper.wd.quit();
+        wd.quit();
     }
 
     private boolean isElementPresent(By by) {
@@ -56,5 +51,9 @@ public class ApplicationManager {
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
+    }
+
+    public NavigationHelper getNavigationHelper() {
+        return navigationHelper;
     }
 }
