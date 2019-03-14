@@ -40,14 +40,7 @@ public class ApplicationManager {
       }
     }
 
-    private boolean isAlertPresent() {
-      try {
-        groupHelper.wd.switchTo().alert();
-        return true;
-      } catch (NoAlertPresentException e) {
-        return false;
-      }
-    }
+
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
