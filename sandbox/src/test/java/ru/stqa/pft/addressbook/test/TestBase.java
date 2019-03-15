@@ -10,48 +10,25 @@ public class TestBase {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
-        app.init();
+        app.app.init();
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
-        app.stop();
+        app.app.stop();
 
-    }
-
-    protected void returnToHomePage() {
-      wd.findElement(By.linkText("home")).click();
-    }
-
-    protected void submitContactCreation() {
-      wd.findElement(By.xpath("submit")).click();
-    }
-
-    protected void fillContactForm(ru.stqa.pft.addressbook.ContactData contactData) {
-      wd.findElement(By.name("firstname")).click();
-      wd.findElement(By.name("firstname")).clear();
-      wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
-      wd.findElement(By.name("middlename")).click();
-      wd.findElement(By.name("middlename")).clear();
-      wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddle_name());
-      wd.findElement(By.name("home")).click();
-      wd.findElement(By.name("home")).clear();
-      wd.findElement(By.name("home")).sendKeys(contactData.getTelephon());
-      wd.findElement(By.name("email")).click();
-      wd.findElement(By.name("email")).clear();
-      wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
-    }
-
-    protected void gotoAddNewContactPage() {
-      wd.findElement(By.linkText("add new")).click();
     }
 
     private boolean isElementPresent(By by) {
       try {
-        wd.findElement(by);
+        app.getContactHelper().wd.findElement(by);
         return true;
       } catch (NoSuchElementException e) {
         return false;
       }
+    }
+
+    public ApplicationManager getApp() {
+        return app;
     }
 }
