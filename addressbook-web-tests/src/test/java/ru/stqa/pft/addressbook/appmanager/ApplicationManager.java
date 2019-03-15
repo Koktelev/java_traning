@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     protected WebDriver wd;
-
+    protected final ApplicationManager app = new ApplicationManager();
+    private  ContactHelper contactHelper ;
     private SessionHelper sessionHelper;
     private  NavigationHelper navigationHelper ;
     private  GroupHelper groupHelper ;
@@ -17,7 +18,8 @@ public class ApplicationManager {
        wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
-        groupHelper = new GroupHelper(navigationHelper.wd);
+        contactHelper = new ContactHelper(wd);
+        groupHelper = new GroupHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
 
@@ -31,9 +33,13 @@ public class ApplicationManager {
         wd.quit();
     }
 
+    public void returnToHomePage() {
+      wd.findElement(By.linkText("home")).click();
+    }
+
     private boolean isElementPresent(By by) {
       try {
-        groupHelper.wd.findElement(by);
+        wd.findElement(by);
         return true;
       } catch (NoSuchElementException e) {
         return false;
@@ -48,5 +54,9 @@ public class ApplicationManager {
 
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
+    }
+
+    public ContactHelper getContactHelper() {
+        return contactHelper;
     }
 }
