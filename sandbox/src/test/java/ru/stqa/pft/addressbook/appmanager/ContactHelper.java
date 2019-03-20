@@ -2,6 +2,8 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ru.stqa.pft.addressbook.model.ContactData
+
 
 public class ContactHelper extends HelperBase{
 
@@ -22,25 +24,25 @@ public class ContactHelper extends HelperBase{
         email(contactData);
     }
 
-    private void email(ru.stqa.pft.addressbook.ContactData contactData) {
+    private void email {
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
         wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
     }
 
-    private void telefon(ru.stqa.pft.addressbook.ContactData contactData, String telefon, String telefon, String telefon) {
+    private void telefon( String telefon, String telefon, String telefon) {
         wd.findElement(By.name(telefon)).click();
         wd.findElement(By.name(telefon)).clear();
         wd.findElement(By.name(telefon)).sendKeys(contactData.getTelephon());
     }
 
-    private void middleName(ru.stqa.pft.addressbook.ContactData contactData) {
+    private void middleName {
         wd.findElement(By.name("middlename")).click();
         wd.findElement(By.name("middlename")).clear();
         wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddle_name());
     }
 
-    private void firstName(ru.stqa.pft.addressbook.ContactData contactData) {
+    private void firstName {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
@@ -48,5 +50,13 @@ public class ContactHelper extends HelperBase{
 
     public void gotoAddNewContactPage() {
       wd.findElement(By.linkText("add new")).click();
+    }
+
+    public void selectContact() {
+        click(By.name("id"));
+    }
+
+    public void DeleteSelectedContact() {
+        wd.findElement(By.name("delete")).click();
     }
 }
