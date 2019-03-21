@@ -59,4 +59,16 @@ public class ContactHelper extends HelperBase{
     public void DeleteSelectedContact() {
         wd.findElement(By.name("delete")).click();
     }
+
+    public void initContactModification() {click(By.linkText("add new"));
+    }
+
+    public void returnToHomePage() {click(By.linkText("home page"));
+    }
+
+    public void submitContactModification() {click(By.name("update") );
+    }
+
+    public void sumbitContactDeletion() {click();By.wd.switchTo().alert().accept();
+    }
 }
