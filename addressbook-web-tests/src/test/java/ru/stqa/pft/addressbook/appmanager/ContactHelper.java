@@ -13,14 +13,14 @@ public class ContactHelper extends HelperBase{
 
     }
 
-    public void submitContactCreation() {
-      wd.findElement(By.xpath("submit")).click();
+    public void submitContactCreation    {
+        wd.findElement(By.xpath("submit")).click();
     }
 
-    public void fillContactForm(ru.stqa.pft.addressbook.ContactData contactData) {
+    public void fillContactForm {
         firstName(contactData);
         middleName(contactData);
-        telefon(contactData, "home", "home", "home");
+        telefon(contactData, "home");
         email(contactData);
     }
 
