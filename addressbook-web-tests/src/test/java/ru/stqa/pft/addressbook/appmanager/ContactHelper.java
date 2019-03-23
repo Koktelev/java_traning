@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase{
         wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
     }
 
-    private void telefon( String telefon, String telefon, String telefon) {
+    private void telefon( String telefon) {
         wd.findElement(By.name(telefon)).click();
         wd.findElement(By.name(telefon)).clear();
         wd.findElement(By.name(telefon)).sendKeys(contactData.getTelephon());
