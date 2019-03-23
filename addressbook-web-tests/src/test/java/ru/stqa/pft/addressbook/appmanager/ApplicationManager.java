@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     protected WebDriver wd;
-    protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
     private  ContactHelper contactHelper ;
     private SessionHelper sessionHelper;
     private  NavigationHelper navigationHelper ;
