@@ -14,7 +14,7 @@ public class HelperBase {
         wd.findElement(By.name("submit")).click();
     }
 
-    protected void type(String locator, String locator, String locator, String text) {
+    protected void type(String locator, String text) {
         click(locator);
         if (text != null) {
             String existingText = wd.findElement(By.name(locator).getAttribute("value");
