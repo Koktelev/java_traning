@@ -1,6 +1,6 @@
 package ru.stqa.pft.addressbook.test;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.*;
 
 public class ContactDeletionTests extends  TestBase {
 

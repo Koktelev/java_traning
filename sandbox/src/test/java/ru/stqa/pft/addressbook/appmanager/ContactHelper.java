@@ -1,7 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData
 
 
@@ -17,14 +19,24 @@ public class ContactHelper extends HelperBase{
         wd.findElement(By.xpath("submit")).click();
     }
 
-    public void fillContactForm {
+    public void fillContactForm { ContactData, contactData , boolean creation )
         firstName(contactData);
         middleName(contactData);
         telefon(contactData, "home");
         email(contactData);
+
+        if (creation) {
+
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup())
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+
+
+
     }
 
-    private void email {
+    private void email ( String  email) {
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
         wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
@@ -36,13 +48,13 @@ public class ContactHelper extends HelperBase{
         wd.findElement(By.name(telefon)).sendKeys(contactData.getTelephon());
     }
 
-    private void middleName {
+    private void middleName ( String middlename) {
         wd.findElement(By.name("middlename")).click();
         wd.findElement(By.name("middlename")).clear();
         wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddle_name());
     }
 
-    private void firstName {
+    private void firstName ( String fiirstname) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(contactData.getName());

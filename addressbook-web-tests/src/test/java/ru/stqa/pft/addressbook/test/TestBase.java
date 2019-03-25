@@ -10,12 +10,12 @@ public class TestBase {
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
-        app.app.init();
+       app.init();
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
-        app.app.stop();
+        app.stop();
 
     }
 
