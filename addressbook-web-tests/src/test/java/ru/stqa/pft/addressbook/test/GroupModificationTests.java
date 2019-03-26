@@ -1,6 +1,8 @@
 package ru.stqa.pft.addressbook.test;
 
 import org.testng.annotations.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.NoAlertPresentException;
 
 public class GroupModificationTests  extends TestBase {
 

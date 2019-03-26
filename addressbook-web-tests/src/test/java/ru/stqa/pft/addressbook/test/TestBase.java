@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
+import org.openqa.selenium.NoAlertPresentException;
 
 public class TestBase {
 
