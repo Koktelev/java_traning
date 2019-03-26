@@ -1,6 +1,8 @@
 package ru.stqa.pft.addressbook.test;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.NoAlertPresentException;
 import ru.stqa.pft.sandbox.Equation;
 
 public class EquationTests {

@@ -2,6 +2,8 @@ package ru.stqa.pft.addressbook.test;
 
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.NoAlertPresentException;
 
 public class GroupDeletionTests extends TestBase {
 
